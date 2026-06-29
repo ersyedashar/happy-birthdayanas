@@ -854,7 +854,7 @@
   <!-- ============ COUNTDOWN ============ -->
   <section id="countdown">
     <div class="container">
-      <h2 class="section-title">Countdown to 5 August</h2>
+      <h2 class="section-title">Countdown to 5 August 2026</h2>
       <div class="countdown-grid" id="countdownGrid">
         <div class="countdown-item"><div class="num" id="days">00</div><div class="label">Days</div></div>
         <div class="countdown-item"><div class="num" id="hours">00</div><div class="label">Hours</div></div>
@@ -986,7 +986,7 @@
   <!-- ============ FOOTER ============ -->
   <footer>
     <p>Made with <span class="heart">❤️</span> by <span class="name">Syed Ashar</span> for my beloved brother <span class="name">Anas</span></p>
-    <p class="footer-date">Happy Birthday &bull; 5 August 2007</p>
+    <p class="footer-date">Happy Birthday &bull; 5 August 2026</p>
   </footer>
 
   <!-- ============ BIRTHDAY POPUP ============ -->
@@ -1147,8 +1147,7 @@
     /* ================================================================
        COUNTDOWN TIMER
     ================================================================ */
-    const targetDate = new Date(new Date().getFullYear(), 7, 5);
-    if (targetDate < new Date()) targetDate.setFullYear(targetDate.getFullYear() + 1);
+    const targetDate = new Date(2026, 7, 5);
 
     const daysEl = document.getElementById('days');
     const hoursEl = document.getElementById('hours');
