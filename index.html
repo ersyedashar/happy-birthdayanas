@@ -913,6 +913,57 @@
       50% { transform: translateY(-6px); }
     }
 
+    /* ── Thank You Section ── */
+    #thankyou {
+      padding: 3rem 1.5rem 1.5rem;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .thankyou-card {
+      position: relative;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .thankyou-text {
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .thankyou-sub {
+      font-size: 1rem;
+      color: rgba(255,215,0,0.6);
+      font-weight: 400;
+    }
+
+    .hearts-container {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .float-heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 1.2rem;
+      animation: riseHeart linear forwards;
+      opacity: 0;
+    }
+
+    @keyframes riseHeart {
+      0% { transform: translateY(0) scale(0.5); opacity: 0; }
+      20% { opacity: 0.6; transform: scale(1); }
+      80% { opacity: 0.4; }
+      100% { transform: translateY(-300px) scale(0.3); opacity: 0; }
+    }
+
     /* ── Footer ── */
     footer {
       position: relative;
@@ -1268,6 +1319,17 @@
         <div class="dua-meaning">
           "O Allah, protect my brother Anas, bless his life, grant him happiness, success, and make all his days full of goodness and blessings."
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ THANK YOU ============ -->
+  <section id="thankyou">
+    <div class="container" style="text-align:center;">
+      <div class="thankyou-card reveal">
+        <div class="hearts-container" id="heartsContainer"></div>
+        <p class="thankyou-text">Thank you for being in my life</p>
+        <p class="thankyou-sub">My beloved brother Anas ❤️</p>
       </div>
     </div>
   </section>
@@ -1651,6 +1713,23 @@
     }
     setInterval(spawnBalloon, 1500);
     for (let i = 0; i < 5; i++) setTimeout(spawnBalloon, i * 400);
+
+    /* ================================================================
+       FLOATING HEARTS
+    ================================================================ */
+    function spawnHeart() {
+      const container = document.getElementById('heartsContainer');
+      if (!container) return;
+      const el = document.createElement('div');
+      el.className = 'float-heart';
+      el.textContent = '❤️';
+      el.style.left = (10 + Math.random() * 80) + '%';
+      el.style.fontSize = (0.8 + Math.random() * 1.2) + 'rem';
+      el.style.animationDuration = (3 + Math.random() * 4) + 's';
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 7000);
+    }
+    setInterval(spawnHeart, 500);
 
     /* ================================================================
        FLOATING EMOJIS
